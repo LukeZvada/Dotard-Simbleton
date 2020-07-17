@@ -1,5 +1,6 @@
 import { useBusinesses } from "./BusinessProvider.js";
-import { business } from "./Business.js";
+import { businessHTML } from "./Business.js";
+import { agentHTML } from "./Business.js";
 import { newYorkCompanies } from "./BusinessProvider.js";
 import { purchasingAgent } from "./BusinessProvider.js";
 
@@ -11,7 +12,7 @@ export const businessList = () => {
 
     businessArr.forEach (
         (businessObj) => { 
-            contentTarget.innerHTML += business(businessObj)
+            contentTarget.innerHTML += businessHTML(businessObj)
         }
     )
 }
@@ -22,17 +23,16 @@ export const nyBusinessList = () => {
 
     nyBusinessArr.forEach (
         (nyBusinessObj) => { 
-            contentTarget.innerHTML += business(nyBusinessObj)
+            contentTarget.innerHTML += businessHTML(nyBusinessObj)
         }
     )
 }
-export const Agent = () => { 
-    const purchasingAgentArr = purchasingAgent
+export const agent = () => { 
     contentTarget.innerHTML += "<h3> Purchasing Agents</h3>"
 
-    purchasingAgentArr.forEach ( 
+    purchasingAgent.forEach ( 
         (agentObj) => {
-            contentTarget.innerHTML += business(agentObj)
+            contentTarget.innerHTML += agentHTML(agentObj)
         }
     )
 }

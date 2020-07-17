@@ -4,5 +4,5 @@ businessList()
 import { nyBusinessList } from "./BusinessList.js";
 nyBusinessList()
 
-import { Agent } from "./BusinessList.js";
-Agent()
+import { agent } from "./BusinessList.js";
+agent()

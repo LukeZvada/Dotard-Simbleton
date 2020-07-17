@@ -1,5 +1,3 @@
-import { business } from "./Business.js";
-
 const businesses = [
     {
       purchasingAgent: { nameLast: "Kirlin", nameFirst: "Kristy" },
@@ -125,5 +123,9 @@ const businesses = [
   })
   
   export const purchasingAgent = businesses.map(agentObj => {
-      return agentObj.purchasingAgent
-  } )
+      return {
+          fullName: `${agentObj.purchasingAgent.nameFirst} ${agentObj.purchasingAgent.nameLast}`,
+          company: agentObj.companyName,
+          phoneNumber: agentObj.phoneWork
+      }
+  })
