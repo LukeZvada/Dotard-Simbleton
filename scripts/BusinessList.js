@@ -1,5 +1,6 @@
 import { useBusinesses } from "./BusinessProvider.js";
 import { business } from "./Business.js";
+import { newYorkCompanies } from "./BusinessProvider";
 
 const contentTarget = document.querySelector("#container")
 
@@ -10,6 +11,17 @@ export const businessList = () => {
     businessArr.forEach (
         (businessObj) => { 
             contentTarget.innerHTML += business(businessObj)
+        }
+    )
+}
+
+export const nyBusinessList = () => { 
+    const nyBusinessArr = newYorkCompanies()
+    contentTarget.innerHTML = "<h2>New York Companies</h2>"
+
+    nyBusinessArr.filter (
+        (nyBusinessObj) => { 
+            contentTarget.innerHTML +=(nyBusinessObj)
         }
     )
 }

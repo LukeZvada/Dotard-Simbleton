@@ -8,12 +8,12 @@ export const business = (businessObj) => {
     `
 }
 
-export const newYorkBusiness = (nyBisinessObj) => { 
+export const newYorkBusiness = (nyBusinessObj) => { 
     return `
     <section class="nyBusiness__list"> 
-    <h2 class"business__title> ${nyBisinessObj.companyName}</h2>
-    <div class="business__street"> ${nyBisinessObj.addressFullStreet}</div>
-    <div class="business__cityState> ${nyBisinessObj.addressCity}, ${businessObj.addressStateCode}, ${businessObj.addressZipCode}
+    <h2 class"business__title> ${nyBusinessObj.companyName}</h2>
+    <div class="business__street"> ${nyBusinessObj.addressFullStreet}</div>
+    <div class="business__cityState> ${nyBusinessObj.addressCity}, ${nyBusinessObj.addressStateCode}, ${nyBusinessObj.addressZipCode}
     </section> 
     `
 }
