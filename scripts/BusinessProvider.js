@@ -1,4 +1,4 @@
-import { business } from "./Business";
+import { business } from "./Business.js";
 
 const businesses = [
     {
