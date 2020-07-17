@@ -32,7 +32,7 @@ export const Agent = () => {
 
     purchasingAgentArr.forEach ( 
         (agentObj) => {
-            contentTarget.innerHTML += purchasingAgent(agentObj)
+            contentTarget.innerHTML += business(agentObj)
         }
     )
 }

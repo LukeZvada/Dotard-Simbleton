@@ -124,6 +124,6 @@ const businesses = [
       return false
   })
   
-  export const purchasingAgent = business.map(agentObj => {
+  export const purchasingAgent = businesses.map(agentObj => {
       return agentObj.purchasingAgent
   } )
