@@ -1,3 +1,5 @@
+import { business } from "./Business.js";
+
 const businesses = [
     {
       purchasingAgent: { nameLast: "Kirlin", nameFirst: "Kristy" },
@@ -114,4 +116,11 @@ const businesses = [
   export const useBusinesses = () => {
     return businesses.slice()
   }
+
+  export const newYorkCompanies = businesses.filter(businessObj => { 
+      if (businessObj.addressStateCode === "NY") { 
+          return true
+      }
+      return false
+  })
   
