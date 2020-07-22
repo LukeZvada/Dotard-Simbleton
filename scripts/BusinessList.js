@@ -66,6 +66,8 @@ document
                 return lowerCaseName.includes(searchValue)
             });
 
+
+            
             companySearchResultArticle.innerHTML = `
                 <h2>
                 ${foundBusiness.companyName}
