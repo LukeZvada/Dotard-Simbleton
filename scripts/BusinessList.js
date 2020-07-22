@@ -62,10 +62,9 @@ document
                 // Then transformed it to be all lowercase (.toLowerCase())
                 const lowerCaseName = business.companyName.toLowerCase()
                 // then above, I made the search value all lowercase (same method)
-                // then below, i returned the search 
+                // then below, i returned the event that was triggered by charcode 13 (enter button) 
                 return lowerCaseName.includes(searchValue)
             });
-
 
             
             companySearchResultArticle.innerHTML = `
