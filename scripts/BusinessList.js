@@ -43,14 +43,6 @@ document
     .querySelector("#companySearch")
     .addEventListener("keypress", keyPressEvent => {
         if (keyPressEvent.charCode === 13) {
-            /*
-                When user presses enter, find the matching business.
-                You can use the `.includes()` method strings to
-                see if a smaller string is part of a larger string.
-
-                Example:
-                    business.companyName.includes(keyPressEvent.target.value)
-            */
 
             // target the #companySearch input to find what value the user typed
             const businessArr = useBusinesses()
@@ -58,27 +50,34 @@ document
 
 
             const foundBusiness = businessArr.find((business) => {
-                // to prevent the capitalization issue, I saved business.companyName to a variable
-                // Then transformed it to be all lowercase (.toLowerCase())
-                const lowerCaseName = business.companyName.toLowerCase()
-                // then above, I made the search value all lowercase (same method)
-                // then below, i returned the search 
-                return lowerCaseName.includes(searchValue)
+                // to prevent capitalization issue, I assigned business.purchasingAgent to a variable
+                // Then transformed it to be all lowercase using (.toLowerCase())
+                const agent = business.purchasingAgent;
+                const firstName = agent.nameFirst.toLowerCase()
+                const lastName = agent.nameLast.toLowerCase()
+                
+                
+                // then above, I made the search value of firstName and lastName all searchable by lowercase (same method)
+                // then below, i returned the event that was triggered by charcode 13 (enter button) by using a .includes. 
+                // I was also able to do this with an if statement, but using the .includes method saved me from using so many characters.  
+                return (firstName.includes(searchValue) || lastName.includes(searchValue))
+               
             });
-
+            
             companySearchResultArticle.innerHTML = `
                 <h2>
-                ${foundBusiness.companyName}
+                    ${foundBusiness.companyName}
                 </h2>
+                <section> 
+                    ${foundBusiness.purchasingAgent.nameFirst} ${foundBusiness.purchasingAgent.nameLast}
                 <section>
-                ${foundBusiness.addressFullStreet}
-
+                    ${foundBusiness.addressFullStreet}
                 </section>
                 <section>
-                ${foundBusiness.addressCity},
-                ${foundBusiness.addressStateCode}
-                ${foundBusiness.addressZipCode}
+                    ${foundBusiness.addressCity},
+                    ${foundBusiness.addressStateCode}
+                    ${foundBusiness.addressZipCode}
                 </section>
-            `
-        }
-    });
+                `
+            }
+        });
