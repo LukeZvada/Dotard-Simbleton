@@ -57,15 +57,20 @@ document
             const searchValue = keyPressEvent.target.value.toLowerCase();
 
 
-            const foundBusiness = businessArr.find((agent) => {
+            const foundBusiness = businessArr.find((business) => {
                 // to prevent the capitalization issue, I saved business.companyName to a variable
                 // Then transformed it to be all lowercase (.toLowerCase())
-                const lowerCaseName = agent.purchasingAgent.nameLast.toLowerCase()
+                const agent = business.purchasingAgent;
+                const firstName = agent.nameFirst.toLowerCase()
+                const lastName = agent.nameLast.toLowerCase()
+                
+                
                 // then above, I made the search value all lowercase (same method)
                 // then below, i returned the event that was triggered by charcode 13 (enter button) 
-                return lowerCaseName.includes(searchValue)
+                return (firstName.includes(searchValue) || lastName.includes(searchValue))
+               
             });
-
+            console.log(foundBusiness)
             
             companySearchResultArticle.innerHTML = `
                 <h2>
