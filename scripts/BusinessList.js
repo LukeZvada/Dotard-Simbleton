@@ -69,17 +69,17 @@ document
             
             companySearchResultArticle.innerHTML = `
                 <h2>
-                ${foundBusiness.companyName}
+                ${foundBusiness.purchasingAgent.nameFirst} ${foundBusiness.purchasingAgent.nameLast}
                 </h2>
-                <section>
-                ${foundBusiness.addressFullStreet}
-
-                </section>
-                <section>
-                ${foundBusiness.addressCity},
-                ${foundBusiness.addressStateCode}
-                ${foundBusiness.addressZipCode}
-                </section>
-            `
+                `
         }
     });
+                // <section>
+                // ${foundBusiness.addressFullStreet}
+
+                // </section>
+                // <section>
+                // ${foundBusiness.addressCity},
+                // ${foundBusiness.addressStateCode}
+                // ${foundBusiness.addressZipCode}
+                // </section>
