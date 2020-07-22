@@ -54,23 +54,17 @@ document
 
             // target the #companySearch input to find what value the user typed
             const businessArr = useBusinesses()
-            const searchValue = keyPressEvent.target.value.lowerCase();
+            const searchValue = keyPressEvent.target.value.toLowerCase();
 
 
             const foundBusiness = businessArr.find((business) => {
-                // to prevent the capitalization issue, you could save business.companyName to a variable
-                // transform it to be all lowercase (.lowerCase())
-                const lowerCaseName = business.companyName.lowerCase()
-                // then above, make the search value all lowercase (same method)
-                // then below, 
+                // to prevent the capitalization issue, I saved business.companyName to a variable
+                // Then transformed it to be all lowercase (.toLowerCase())
+                const lowerCaseName = business.companyName.toLowerCase()
+                // then above, I made the search value all lowercase (same method)
+                // then below, i returned the search 
                 return lowerCaseName.includes(searchValue)
             });
-
-            console.log(foundBusiness)
-
-            // wrap the function below in an if statement
-            // if there is a result, show what's below
-            // if there's not, show a message that says "there are no results"
 
             companySearchResultArticle.innerHTML = `
                 <h2>
@@ -85,6 +79,6 @@ document
                 ${foundBusiness.addressStateCode}
                 ${foundBusiness.addressZipCode}
                 </section>
-            `;
+            `
         }
     });
