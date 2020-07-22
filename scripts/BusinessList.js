@@ -36,3 +36,49 @@ export const agent = () => {
         }
     )
 }
+
+const companySearchResultArticle = document.querySelector(".foundCompanies")
+
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+            /*
+                When user presses enter, find the matching business.
+                You can use the `.includes()` method strings to
+                see if a smaller string is part of a larger string.
+
+                Example:
+                    business.companyName.includes(keyPressEvent.target.value)
+            */
+
+            // target the #companySearch input to find what value the user typed
+            const businessArr = useBusinesses()
+            const searchValue = keyPressEvent.target.value.toLowerCase();
+
+
+            const foundBusiness = businessArr.find((business) => {
+                // to prevent the capitalization issue, I saved business.companyName to a variable
+                // Then transformed it to be all lowercase (.toLowerCase())
+                const lowerCaseName = business.companyName.toLowerCase()
+                // then above, I made the search value all lowercase (same method)
+                // then below, i returned the search 
+                return lowerCaseName.includes(searchValue)
+            });
+
+            companySearchResultArticle.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+            `
+        }
+    });
