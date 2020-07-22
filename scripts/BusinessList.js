@@ -57,10 +57,10 @@ document
             const searchValue = keyPressEvent.target.value.toLowerCase();
 
 
-            const foundBusiness = businessArr.find((business) => {
+            const foundBusiness = businessArr.find((agent) => {
                 // to prevent the capitalization issue, I saved business.companyName to a variable
                 // Then transformed it to be all lowercase (.toLowerCase())
-                const lowerCaseName = business.companyName.toLowerCase()
+                const lowerCaseName = agent.purchasingAgent.nameLast.toLowerCase()
                 // then above, I made the search value all lowercase (same method)
                 // then below, i returned the event that was triggered by charcode 13 (enter button) 
                 return lowerCaseName.includes(searchValue)
@@ -69,17 +69,30 @@ document
             
             companySearchResultArticle.innerHTML = `
                 <h2>
-                ${foundBusiness.purchasingAgent.nameFirst} ${foundBusiness.purchasingAgent.nameLast}
+                    ${foundBusiness.companyName}
                 </h2>
+                <section> 
+                    ${foundBusiness.purchasingAgent.nameFirst} ${foundBusiness.purchasingAgent.nameLast}
+                <section>
+                    ${foundBusiness.addressFullStreet}
+                </section>
+                <section>
+                    ${foundBusiness.addressCity},
+                    ${foundBusiness.addressStateCode}
+                    ${foundBusiness.addressZipCode}
+                </section>
                 `
-        }
-    });
-                // <section>
-                // ${foundBusiness.addressFullStreet}
+            }
+        });
+        // <section>
+        // ${foundBusiness.addressFullStreet}
+        
+        // </section>
+        // <section>
+        // ${foundBusiness.addressCity},
+        // ${foundBusiness.addressStateCode}
+        // ${foundBusiness.addressZipCode}
+        // </section>
 
-                // </section>
-                // <section>
-                // ${foundBusiness.addressCity},
-                // ${foundBusiness.addressStateCode}
-                // ${foundBusiness.addressZipCode}
-                // </section>
+
+//        ${foundBusiness.purchasingAgent.nameFirst} ${foundBusiness.purchasingAgent.nameLast}
